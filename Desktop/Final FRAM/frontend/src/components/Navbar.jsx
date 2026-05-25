@@ -13,29 +13,27 @@ const Navbar = ({ activeTab, setActiveTab }) => {
         </span>
       </div>
 
-      <div className="flex gap-4">
-        <button
-          onClick={() => setActiveTab('market')}
-          className={`flex items-center gap-2 px-4 py-2 rounded-xl transition-all ${
-            activeTab === 'market' 
-              ? 'bg-emerald-500 text-white shadow-[0_0_15px_rgba(16,185,129,0.4)]' 
-              : 'text-slate-400 hover:text-white hover:bg-slate-800'
-          }`}
-        >
-          <BarChart2 size={18} />
-          <span className="hidden sm:inline">Browse Market</span>
-        </button>
-        <button
-          onClick={() => setActiveTab('requests')}
-          className={`flex items-center gap-2 px-4 py-2 rounded-xl transition-all ${
-            activeTab === 'requests' 
-              ? 'bg-emerald-500 text-white shadow-[0_0_15px_rgba(16,185,129,0.4)]' 
-              : 'text-slate-400 hover:text-white hover:bg-slate-800'
-          }`}
-        >
-          <History size={18} />
-          <span className="hidden sm:inline">My Requests</span>
-        </button>
+      <div className="flex gap-2">
+        {[
+          { id: 'dashboard', label: 'Dashboard', icon: BarChart2 },
+          { id: 'assistant', label: 'AI Assistant', icon: Sprout },
+          { id: 'market', label: 'Direct Trade', icon: History },
+          { id: 'requests', label: 'My Requests', icon: History },
+          { id: 'nearby', label: 'Markets', icon: BarChart2 }
+        ].map(item => (
+          <button
+            key={item.id}
+            onClick={() => setActiveTab(item.id)}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl transition-all ${
+              activeTab === item.id 
+                ? 'bg-emerald-500 text-white shadow-[0_0_15px_rgba(16,185,129,0.4)]' 
+                : 'text-slate-400 hover:text-white hover:bg-slate-800'
+            }`}
+          >
+            <item.icon size={18} />
+            <span className="hidden lg:inline">{item.label}</span>
+          </button>
+        ))}
       </div>
     </nav>
   );

@@ -1,24 +1,34 @@
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
+import Dashboard from './components/Dashboard';
+import AIAssistant from './components/AIAssistant';
+import NearbyMarkets from './components/NearbyMarkets';
 import Marketplace from './components/Marketplace';
 import RequestStatus from './components/RequestStatus';
 import CompanyModal from './components/CompanyModal';
 import { AnimatePresence } from 'framer-motion';
 
 function App() {
-  const [activeTab, setActiveTab] = useState('market'); // 'market' or 'requests'
+  const [activeTab, setActiveTab] = useState('dashboard'); 
   const [selectedCompany, setSelectedCompany] = useState(null);
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case 'dashboard': return <Dashboard />;
+      case 'assistant': return <AIAssistant />;
+      case 'market': return <Marketplace onSelectCompany={(company) => setSelectedCompany(company)} />;
+      case 'requests': return <RequestStatus />;
+      case 'nearby': return <NearbyMarkets />;
+      default: return <Dashboard />;
+    }
+  };
 
   return (
     <div className="min-h-screen bg-[#0f172a] text-slate-200">
       <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
       
       <main>
-        {activeTab === 'market' ? (
-          <Marketplace onSelectCompany={(company) => setSelectedCompany(company)} />
-        ) : (
-          <RequestStatus />
-        )}
+        {renderContent()}
       </main>
 
       <AnimatePresence>

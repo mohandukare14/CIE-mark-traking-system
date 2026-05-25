@@ -27,7 +27,7 @@ const Marketplace = ({ onSelectCompany }) => {
     try {
       setLoading(true);
       const res = await axios.get(`/api/companies${selectedCrop ? `?crop=${selectedCrop}` : ''}`);
-      setCompanies(res.data);
+      setCompanies(Array.isArray(res.data) ? res.data : []);
       setLoading(false);
     } catch (err) {
       setError('Failed to load companies. Is the backend running?');
