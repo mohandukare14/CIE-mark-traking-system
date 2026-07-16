@@ -39,15 +39,6 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-6">
-              <a href="#login" className="w-full sm:w-auto">
-                <motion.button 
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-full bg-neon-lime text-dark-gray px-8 py-4 rounded-full font-bold text-lg hover:shadow-[0_0_20px_rgba(187,246,97,0.6)] transition-all flex items-center justify-center gap-2"
-                >
-                  Login <ArrowRight size={20} />
-                </motion.button>
-              </a>
               <a href="#about" className="w-full sm:w-auto">
                 <motion.button 
                   whileHover={{ scale: 1.05 }}

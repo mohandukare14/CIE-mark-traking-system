@@ -5,7 +5,6 @@ import About from './components/About';
 import Features from './components/Features';
 import CalendarActivities from './components/CalendarActivities';
 import Notices from './components/Notices';
-import Login from './components/Login';
 import HelpDesk from './components/HelpDesk';
 import Footer from './components/Footer';
 
@@ -21,7 +20,6 @@ function App() {
         <Features />
         <CalendarActivities />
         <Notices />
-        <Login />
         <HelpDesk />
       </main>
 
