@@ -1,32 +1,49 @@
-# React + TypeScript + Vite
+# CIE Mark Tracking System
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A modern, responsive landing page for the CIE (Continuous Internal Evaluation) Activity Marks Tracking System of ZEAL College of Engineering & Research. Built with React, TypeScript, Tailwind CSS, and Vite.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Modern UI**: Designed with Tailwind CSS and Framer Motion for smooth animations and a premium look.
+- **Responsive Layout**: Works seamlessly across desktop, tablet, and mobile devices.
+- **Key Sections**: Includes Hero, Statistics, About, Features, Calendar, Notices, and Help Desk sections.
 
-## React Compiler
+## Prerequisites
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- [Node.js](https://nodejs.org/) (v16 or higher recommended)
+- npm (comes with Node.js)
 
-## Expanding the Oxlint configuration
+## Project Setup
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+1. **Clone the repository** (if you haven't already):
+   ```bash
+   git clone <repository-url>
+   cd CIE-mark-traking-system
+   ```
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+3. **Start the development server**:
+   ```bash
+   npm run dev
+   ```
+   The application will be available at `http://localhost:5173/`.
+
+## Available Scripts
+
+- `npm run dev`: Starts the development server with Hot Module Replacement (HMR).
+- `npm run build`: Compiles TypeScript and builds the app for production.
+- `npm run lint`: Lints the code using oxlint.
+- `npm run preview`: Serves the production build locally for preview.
+
+## Tech Stack
+
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [Lucide React](https://lucide.dev/) (for icons)
