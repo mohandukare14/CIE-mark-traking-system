@@ -59,6 +59,20 @@ const Header = () => {
             ))}
           </nav>
 
+          {/* Right Actions */}
+          <div className="hidden lg:flex items-center space-x-4">
+            <div className="h-8 w-px bg-white/20"></div>
+            <a href="#login">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-neon-lime text-dark-gray px-6 py-2 rounded-full font-semibold hover:shadow-[0_0_15px_rgba(187,246,97,0.5)] transition-all"
+              >
+                Login
+              </motion.button>
+            </a>
+          </div>
+
           {/* Mobile Menu Button */}
           <div className="lg:hidden flex items-center">
             <button
@@ -90,6 +104,11 @@ const Header = () => {
                 {link.name}
               </a>
             ))}
+            <a href="#login" onClick={() => setIsMobileMenuOpen(false)}>
+              <button className="w-full bg-neon-lime text-dark-gray mt-4 px-6 py-3 rounded-full font-semibold">
+                Login
+              </button>
+            </a>
           </div>
         </motion.div>
       )}

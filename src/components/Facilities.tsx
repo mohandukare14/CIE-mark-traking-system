@@ -48,7 +48,7 @@ const Facilities = () => {
 
   const updateSliderDimensions = () => {
     if (!trackRef.current) return;
-    
+
     const card = trackRef.current.querySelector('.slide-card');
     if (!card) return;
 
@@ -67,7 +67,7 @@ const Facilities = () => {
   useEffect(() => {
     updateSliderDimensions();
     window.addEventListener('resize', updateSliderDimensions);
-    
+
     // Setup another trigger to handle post-load dimensions
     const timer = setTimeout(updateSliderDimensions, 100);
     return () => {
@@ -87,18 +87,15 @@ const Facilities = () => {
   return (
     <section id="facilities" className="py-24 bg-white border-t border-b border-light-gray/25">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         <div className="flex justify-between items-end mb-12">
           <div>
-            <span className="inline-block px-3 py-1 bg-accent-gold/10 text-accent-gold rounded-full text-xs font-bold uppercase mb-3">
-              Infrastructure
-            </span>
             <h2 className="text-3xl md:text-4xl font-extrabold text-dark-gray font-poppins">
               Campus Facilities
             </h2>
           </div>
           <div className="flex gap-3">
-            <button 
+            <button
               onClick={handlePrev}
               disabled={currentSlide === 0}
               className={`w-12 h-12 rounded-full border border-light-gray/20 flex items-center justify-center text-dark-gray hover:border-primary-teal hover:text-primary-teal transition-all
@@ -108,7 +105,7 @@ const Facilities = () => {
             >
               <ArrowLeft size={20} />
             </button>
-            <button 
+            <button
               onClick={handleNext}
               disabled={currentSlide >= maxSlide}
               className={`w-12 h-12 rounded-full border border-light-gray/20 flex items-center justify-center text-dark-gray hover:border-primary-teal hover:text-primary-teal transition-all
@@ -122,21 +119,21 @@ const Facilities = () => {
         </div>
 
         <div className="overflow-hidden relative w-full">
-          <div 
+          <div
             ref={trackRef}
             className="flex gap-8 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] w-full"
-            style={{ 
-              transform: `translateX(-${currentSlide * (slideWidth + 32)}px)` 
+            style={{
+              transform: `translateX(-${currentSlide * (slideWidth + 32)}px)`
             }}
           >
             {facilities.map(facility => (
-              <div 
-                key={facility.id} 
+              <div
+                key={facility.id}
                 className="slide-card flex-shrink-0 w-full sm:w-[calc(50%-16px)] lg:w-[calc(33.333%-21.3px)] bg-off-white border border-light-gray/20 rounded-[20px] overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-2 hover:border-primary-teal transition-all duration-300 group"
               >
                 <div className="overflow-hidden h-60 w-full">
-                  <div 
-                    className="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" 
+                  <div
+                    className="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
                     style={{ backgroundImage: `url(${facility.img})` }}
                   />
                 </div>
