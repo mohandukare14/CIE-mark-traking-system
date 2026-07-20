@@ -28,7 +28,7 @@ const Header = () => {
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-primary-teal/80 backdrop-blur-lg shadow-lg py-3' : 'bg-transparent py-5'
+        isScrolled ? 'bg-black/35 backdrop-blur-[3px] shadow-lg py-3' : 'bg-transparent py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -77,7 +77,7 @@ const Header = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          className="lg:hidden absolute top-full left-0 right-0 bg-dark-teal border-t border-white/10 shadow-xl"
+          className="lg:hidden absolute top-full left-0 right-0 bg-black/85 backdrop-blur-[6px] border-t border-white/10 shadow-xl"
         >
           <div className="px-4 py-4 flex flex-col space-y-4">
             {navLinks.map((link) => (

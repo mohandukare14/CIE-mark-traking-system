@@ -1,13 +1,916 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>landing-page</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZCOER - CIE Portal</title>
+
+  <!-- Google Fonts: Inter & Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons via Unpkg / FontAwesome SVG support -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header class="header" id="mainHeader">
+    <div class="max-w-7xl">
+      <div class="nav-row">
+        <!-- Logo Left -->
+        <div class="brand-wrapper">
+          <div class="logo-circle">Z</div>
+          <div class="brand-text">
+            <span class="brand-title">ZCOER</span>
+            <span class="brand-subtitle">CIE Portal</span>
+          </div>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav">
+          <a href="#home" class="nav-item">Home</a>
+          <a href="#about" class="nav-item">About</a>
+          <a href="#calendar" class="nav-item">Academic Calendar</a>
+          <a href="#guidelines" class="nav-item">CIE Guidelines</a>
+          <a href="#activities" class="nav-item">Activities</a>
+          <a href="#notices" class="nav-item">Notices</a>
+          <a href="#contact" class="nav-item">Contact</a>
+          <a href="#helpdesk" class="nav-item">Help Desk</a>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button class="mobile-toggle-btn" id="mobileMenuBtn" aria-label="Toggle Navigation">
+          <i class="fas fa-bars" id="mobileMenuIcon" style="font-size: 1.5rem;"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-menu-drawer" id="mobileDrawer" style="display: none;">
+      <a href="#home" class="mobile-menu-link">Home</a>
+      <a href="#about" class="mobile-menu-link">About</a>
+      <a href="#calendar" class="mobile-menu-link">Academic Calendar</a>
+      <a href="#guidelines" class="mobile-menu-link">CIE Guidelines</a>
+      <a href="#activities" class="mobile-menu-link">Activities</a>
+      <a href="#notices" class="mobile-menu-link">Notices</a>
+      <a href="#contact" class="mobile-menu-link">Contact</a>
+      <a href="#helpdesk" class="mobile-menu-link">Help Desk</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+      <div class="hero-bg-image" style="background-image: url('https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?q=80&w=1200');"></div>
+      <div class="hero-bg-overlay"></div>
+
+      <div class="max-w-7xl">
+        <div class="hero-grid">
+          <!-- Left Text Content -->
+          <div style="text-align: left;">
+            <span class="hero-badge">
+              ZEAL College of Engineering & Research
+            </span>
+            <h1 class="hero-title">
+              Welcome to <br>
+              <span class="gradient-title-span">CIE Activity Marks</span> <br>
+              Tracking System
+            </h1>
+            <p class="hero-desc">
+              Manage, monitor, and track student Continuous Internal Evaluation activities with complete transparency, efficiency, and security.
+            </p>
+            <div>
+              <a href="#about" class="hero-btn">Learn More</a>
+            </div>
+          </div>
+
+          <!-- Right Dashboard Card Mockup -->
+          <div class="hero-preview-col">
+            <div style="height: 500px; display: flex; align-items: center; justify-content: center; position: relative;">
+              <!-- Main Card -->
+              <div class="glass-card dashboard-float-card">
+                <div class="dashboard-header">
+                  <div>
+                    <h3 style="color: #ffffff; font-weight: 700; font-size: 1.125rem;">Student Overview</h3>
+                    <p style="color: rgba(255, 255, 255, 0.6); font-size: 0.75rem;">Semester 6</p>
+                  </div>
+                  <div class="avatar-circle">JD</div>
+                </div>
+
+                <div class="metric-row">
+                  <div class="metric-box">
+                    <div class="metric-icon-box lime">
+                      <i class="fas fa-chart-simple" style="font-size: 1.25rem;"></i>
+                    </div>
+                    <div>
+                      <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.875rem;">Total CIE Score</p>
+                      <p style="color: #ffffff; font-weight: 700; font-size: 1.25rem;">85/100</p>
+                    </div>
+                  </div>
+
+                  <div class="metric-box">
+                    <div class="metric-icon-box gold">
+                      <i class="fas fa-award" style="font-size: 1.25rem;"></i>
+                    </div>
+                    <div>
+                      <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.875rem;">Activities Completed</p>
+                      <p style="color: #ffffff; font-weight: 700; font-size: 1.25rem;">4/5</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Floating Elements -->
+              <div class="glass-card floating-pill pill-1">
+                <i class="fas fa-users" style="color: var(--neon-lime);"></i>
+                <span style="color: #ffffff; font-weight: 600; font-size: 0.875rem;">120+ Faculty</span>
+              </div>
+
+              <div class="glass-card floating-pill pill-2">
+                <i class="fas fa-calendar" style="color: var(--accent-gold);"></i>
+                <span style="color: #ffffff; font-weight: 600; font-size: 0.875rem;">Upcoming: Hackathon</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="statistics-section">
+      <div class="max-w-7xl">
+        <div class="stats-grid">
+          <div class="stat-box">
+            <h3 class="stat-val">5000+</h3>
+            <p class="stat-txt">Students</p>
+          </div>
+          <div class="stat-box">
+            <h3 class="stat-val">120+</h3>
+            <p class="stat-txt">Faculty</p>
+          </div>
+          <div class="stat-box">
+            <h3 class="stat-val">150+</h3>
+            <p class="stat-txt">Activities</p>
+          </div>
+          <div class="stat-box">
+            <h3 class="stat-val">100%</h3>
+            <p class="stat-txt">Transparent Evaluation</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+      <div class="max-w-7xl">
+        <div class="about-grid">
+          <!-- Left Illustration -->
+          <div style="position: relative;">
+            <div style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(187,246,97,0.2), rgba(44,154,161,0.2)); border-radius: 9999px; filter: blur(48px); opacity: 0.5; transform: scale(0.9);"></div>
+            <div class="about-card-mock">
+              <div class="about-card-inner">
+                <div style="position: absolute; top: 2rem; left: 2rem; width: 33%; height: 6rem; background-color: rgba(169,191,193,0.2); border-radius: 0.75rem;"></div>
+                <div style="position: absolute; top: 9rem; left: 2rem; width: 66%; height: 3rem; background-color: rgba(169,191,193,0.2); border-radius: 0.75rem;"></div>
+                <div style="position: absolute; bottom: 3rem; right: 2rem; width: 50%; height: 10rem; background-color: rgba(44,154,161,0.1); border-radius: 0.75rem;"></div>
+
+                <div class="glass-card-light" style="width: 100%; max-width: 24rem; height: 16rem; z-index: 10; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between;">
+                  <div style="display: flex; gap: 0.75rem; align-items: center; border-bottom: 1px solid #e5e7eb; padding-bottom: 1rem;">
+                    <div style="width: 3rem; height: 3rem; border-radius: 9999px; background-color: var(--primary-teal); display: flex; align-items: center; justify-content: center; color: #ffffff; font-weight: 700;">FA</div>
+                    <div>
+                      <div style="width: 6rem; height: 1rem; background-color: #e5e7eb; border-radius: 0.25rem; margin-bottom: 0.5rem;"></div>
+                      <div style="width: 4rem; height: 0.75rem; background-color: #f3f4f6; border-radius: 0.25rem;"></div>
+                    </div>
+                  </div>
+                  <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <div style="width: 100%; height: 2rem; background-color: rgba(187,246,97,0.2); border-radius: 0.25rem; display: flex; align-items: center; padding: 0 0.75rem;">
+                      <div style="width: 5rem; height: 0.5rem; background-color: rgba(44,154,161,0.4); border-radius: 0.25rem;"></div>
+                    </div>
+                    <div style="width: 100%; height: 2rem; background-color: #f3f4f6; border-radius: 0.25rem; display: flex; align-items: center; padding: 0 0.75rem;">
+                      <div style="width: 6rem; height: 0.5rem; background-color: #d1d5db; border-radius: 0.25rem;"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Content -->
+          <div>
+            <h2 style="font-size: 2.25rem; font-weight: 800; color: var(--dark-gray); margin-bottom: 1.5rem; font-family: var(--font-poppins);">
+              About the <span style="color: var(--primary-teal);">CIE Portal</span>
+            </h2>
+            <p style="font-size: 1.125rem; color: rgba(25, 36, 36, 0.7); margin-bottom: 2rem; line-height: 1.625;">
+              The Continuous Internal Evaluation (CIE) Marks Tracking System is designed exclusively for the ZEAL College of Engineering & Research. It provides a seamless, transparent platform for both students and faculty to manage academic milestones and extracurricular activities.
+            </p>
+
+            <ul style="list-style: none; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 1rem;">
+              <li style="display: flex; align-items: center; gap: 0.75rem; font-weight: 500; color: var(--dark-gray);">
+                <i class="fas fa-circle-check" style="color: var(--neon-lime); font-size: 1.5rem;"></i>
+                <span>Monitor activity marks in real-time</span>
+              </li>
+              <li style="display: flex; align-items: center; gap: 0.75rem; font-weight: 500; color: var(--dark-gray);">
+                <i class="fas fa-circle-check" style="color: var(--neon-lime); font-size: 1.5rem;"></i>
+                <span>Verify activities instantly</span>
+              </li>
+              <li style="display: flex; align-items: center; gap: 0.75rem; font-weight: 500; color: var(--dark-gray);">
+                <i class="fas fa-circle-check" style="color: var(--neon-lime); font-size: 1.5rem;"></i>
+                <span>Manage departmental records efficiently</span>
+              </li>
+              <li style="display: flex; align-items: center; gap: 0.75rem; font-weight: 500; color: var(--dark-gray);">
+                <i class="fas fa-circle-check" style="color: var(--neon-lime); font-size: 1.5rem;"></i>
+                <span>Ensure 100% transparent evaluation</span>
+              </li>
+            </ul>
+
+            <button style="background-color: var(--primary-teal); color: #ffffff; padding: 0.75rem 2rem; border-radius: 9999px; font-weight: 600; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); transition: background-color 0.2s ease;">
+              Read Full Documentation
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Campus Facilities Section -->
+    <section id="facilities" class="facilities-section">
+      <div class="max-w-7xl">
+        <div class="fac-header">
+          <div>
+            <span class="fac-badge">Infrastructure</span>
+            <h2 style="font-size: 2.25rem; font-weight: 800; color: var(--dark-gray); font-family: var(--font-poppins);">
+              Campus Facilities
+            </h2>
+          </div>
+          <div style="display: flex; gap: 0.75rem;">
+            <button class="nav-arrow-btn" id="prevFacBtn" aria-label="Previous Slide">
+              <i class="fas fa-arrow-left"></i>
+            </button>
+            <button class="nav-arrow-btn" id="nextFacBtn" aria-label="Next Slide">
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="slider-wrapper">
+          <div class="slider-track" id="facTrack">
+            <!-- Facility 1 -->
+            <div class="slide-card">
+              <div class="slide-img-box">
+                <div class="slide-img-bg" style="background-image: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=600');"></div>
+              </div>
+              <div class="slide-body">
+                <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--dark-gray); margin-bottom: 0.75rem; font-family: var(--font-poppins);">Computer Science Labs</h3>
+                <p style="font-size: 0.875rem; color: rgba(25, 36, 36, 0.7); line-height: 1.625;">State-of-the-art developer terminals equipped with AI tools and high-speed network nodes.</p>
+              </div>
+            </div>
+
+            <!-- Facility 2 -->
+            <div class="slide-card">
+              <div class="slide-img-box">
+                <div class="slide-img-bg" style="background-image: url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=600');"></div>
+              </div>
+              <div class="slide-body">
+                <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--dark-gray); margin-bottom: 0.75rem; font-family: var(--font-poppins);">Central Library Hub</h3>
+                <p style="font-size: 0.875rem; color: rgba(25, 36, 36, 0.7); line-height: 1.625;">Resource archives featuring reference manuals, digital research databases, and study areas.</p>
+              </div>
+            </div>
+
+            <!-- Facility 3 -->
+            <div class="slide-card">
+              <div class="slide-img-box">
+                <div class="slide-img-bg" style="background-image: url('https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?q=80&w=600');"></div>
+              </div>
+              <div class="slide-body">
+                <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--dark-gray); margin-bottom: 0.75rem; font-family: var(--font-poppins);">Athletic Arena</h3>
+                <p style="font-size: 0.875rem; color: rgba(25, 36, 36, 0.7); line-height: 1.625;">High-capacity stadium, tennis courts, and fitness facilities for sports evaluations.</p>
+              </div>
+            </div>
+
+            <!-- Facility 4 -->
+            <div class="slide-card">
+              <div class="slide-img-box">
+                <div class="slide-img-bg" style="background-image: url('https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=600');"></div>
+              </div>
+              <div class="slide-body">
+                <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--dark-gray); margin-bottom: 0.75rem; font-family: var(--font-poppins);">Innovation Center</h3>
+                <p style="font-size: 0.875rem; color: rgba(25, 36, 36, 0.7); line-height: 1.625;">Incubation workspace for student startups, patents, and mechanical projects.</p>
+              </div>
+            </div>
+
+            <!-- Facility 5 -->
+            <div class="slide-card">
+              <div class="slide-img-box">
+                <div class="slide-img-bg" style="background-image: url('https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=600');"></div>
+              </div>
+              <div class="slide-body">
+                <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--dark-gray); margin-bottom: 0.75rem; font-family: var(--font-poppins);">Seminar Hall Complex</h3>
+                <p style="font-size: 0.875rem; color: rgba(25, 36, 36, 0.7); line-height: 1.625;">Multi-purpose auditoriums for national conferences, expert talks, and technical presentations.</p>
+              </div>
+            </div>
+
+            <!-- Facility 6 -->
+            <div class="slide-card">
+              <div class="slide-img-box">
+                <div class="slide-img-bg" style="background-image: url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=600');"></div>
+              </div>
+              <div class="slide-body">
+                <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--dark-gray); margin-bottom: 0.75rem; font-family: var(--font-poppins);">Student Cafeteria</h3>
+                <p style="font-size: 0.875rem; color: rgba(25, 36, 36, 0.7); line-height: 1.625;">Hygienic and spacious dining area serving nutritious meals and active social zones.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Grid Section -->
+    <section class="features-section" id="guidelines">
+      <div class="max-w-7xl">
+        <div style="text-align: center; max-width: 48rem; margin: 0 auto 4rem;">
+          <h2 style="font-size: 2.25rem; font-weight: 800; color: var(--dark-gray); margin-bottom: 1rem; font-family: var(--font-poppins);">
+            Everything You Need in One Portal
+          </h2>
+          <p style="font-size: 1.125rem; color: rgba(25, 36, 36, 0.7);">
+            Discover a comprehensive suite of tools tailored for academic excellence and transparent evaluation.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <!-- Feature 1 -->
+          <div class="feature-box">
+            <div class="icon-wrapper" style="background-color: rgba(44,154,161,0.1); color: var(--primary-teal);">
+              <i class="fas fa-calendar-days" style="font-size: 2rem;"></i>
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--dark-gray); margin-bottom: 0.75rem; font-family: var(--font-poppins);">Academic Calendar</h3>
+            <p style="color: rgba(25, 36, 36, 0.7); line-height: 1.625;">View the complete semester schedule, exam dates, and holidays.</p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="feature-box">
+            <div class="icon-wrapper" style="background-color: rgba(159,126,81,0.1); color: var(--accent-gold);">
+              <i class="fas fa-file-lines" style="font-size: 2rem;"></i>
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--dark-gray); margin-bottom: 0.75rem; font-family: var(--font-poppins);">CIE Guidelines</h3>
+            <p style="color: rgba(25, 36, 36, 0.7); line-height: 1.625;">Download and review official regulations and marking schemes.</p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="feature-box">
+            <div class="icon-wrapper" style="background-color: rgba(187,246,97,0.2); color: var(--neon-lime);">
+              <i class="fas fa-calendar-check" style="font-size: 2rem;"></i>
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--dark-gray); margin-bottom: 0.75rem; font-family: var(--font-poppins);">Upcoming Activities</h3>
+            <p style="color: rgba(25, 36, 36, 0.7); line-height: 1.625;">Stay updated with upcoming workshops, seminars, and events.</p>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="feature-box">
+            <div class="icon-wrapper" style="background-color: rgba(44,154,161,0.1); color: var(--primary-teal);">
+              <i class="fas fa-bell" style="font-size: 2rem;"></i>
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--dark-gray); margin-bottom: 0.75rem; font-family: var(--font-poppins);">Latest Notices</h3>
+            <p style="color: rgba(25, 36, 36, 0.7); line-height: 1.625;">Get instant notifications for recent announcements and updates.</p>
+          </div>
+
+          <!-- Feature 5 -->
+          <div class="feature-box">
+            <div class="icon-wrapper" style="background-color: rgba(29,135,143,0.1); color: var(--dark-teal);">
+              <i class="fas fa-id-card-clip" style="font-size: 2rem;"></i>
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--dark-gray); margin-bottom: 0.75rem; font-family: var(--font-poppins);">Student Dashboard</h3>
+            <p style="color: rgba(25, 36, 36, 0.7); line-height: 1.625;">Track your personal marks, attendance, and activity completion.</p>
+          </div>
+
+          <!-- Feature 6 -->
+          <div class="feature-box">
+            <div class="icon-wrapper" style="background-color: rgba(159,126,81,0.1); color: var(--accent-gold);">
+              <i class="fas fa-graduation-cap" style="font-size: 2rem;"></i>
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--dark-gray); margin-bottom: 0.75rem; font-family: var(--font-poppins);">Faculty Dashboard</h3>
+            <p style="color: rgba(25, 36, 36, 0.7); line-height: 1.625;">Manage activities, verify student participation, and update marks.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Calendar & Activities Section -->
+    <section id="calendar" class="calendar-section">
+      <div class="calendar-bg-dots"></div>
+
+      <div class="max-w-7xl" style="position: relative; z-index: 10;">
+        <div class="calendar-grid">
+
+          <!-- Left Column: Calendar Widget -->
+          <div class="cal-col-left">
+            <h2 style="font-size: 1.875rem; font-weight: 700; color: #ffffff; margin-bottom: 1.5rem; font-family: var(--font-poppins);">Academic Calendar</h2>
+
+            <div class="cal-card">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <h3 style="font-size: 1.25rem; font-weight: 600; color: #ffffff;">August 2026</h3>
+                <div style="display: flex; gap: 0.5rem;">
+                  <button style="width: 2rem; height: 2rem; border-radius: 9999px; background-color: rgba(255,255,255,0.05); color: #ffffff; display: flex; align-items: center; justify-content: center;">&lt;</button>
+                  <button style="width: 2rem; height: 2rem; border-radius: 9999px; background-color: rgba(255,255,255,0.05); color: #ffffff; display: flex; align-items: center; justify-content: center;">&gt;</button>
+                </div>
+              </div>
+
+              <div class="cal-days-header-grid">
+                <div class="cal-days-header-cell">S</div>
+                <div class="cal-days-header-cell">M</div>
+                <div class="cal-days-header-cell">T</div>
+                <div class="cal-days-header-cell">W</div>
+                <div class="cal-days-header-cell">T</div>
+                <div class="cal-days-header-cell">F</div>
+                <div class="cal-days-header-cell">S</div>
+              </div>
+
+              <!-- 31 Days Matrix -->
+              <div class="cal-matrix-grid">
+                <div class="cal-date-cell">1</div>
+                <div class="cal-date-cell">2</div>
+                <div class="cal-date-cell">3</div>
+                <div class="cal-date-cell">4</div>
+                <div class="cal-date-cell">5</div>
+                <div class="cal-date-cell">6</div>
+                <div class="cal-date-cell">7</div>
+                <div class="cal-date-cell">8</div>
+                <div class="cal-date-cell">9</div>
+                <div class="cal-date-cell">10</div>
+                <div class="cal-date-cell">11</div>
+                <div class="cal-date-cell">12</div>
+                <div class="cal-date-cell">13</div>
+                <div class="cal-date-cell">14</div>
+                <div class="cal-date-cell highlight-teal border-lime">15</div>
+                <div class="cal-date-cell highlight-teal">16</div>
+                <div class="cal-date-cell">17</div>
+                <div class="cal-date-cell">18</div>
+                <div class="cal-date-cell">19</div>
+                <div class="cal-date-cell">20</div>
+                <div class="cal-date-cell">21</div>
+                <div class="cal-date-cell highlight-teal">22</div>
+                <div class="cal-date-cell">23</div>
+                <div class="cal-date-cell">24</div>
+                <div class="cal-date-cell">25</div>
+                <div class="cal-date-cell">26</div>
+                <div class="cal-date-cell">27</div>
+                <div class="cal-date-cell">28</div>
+                <div class="cal-date-cell">29</div>
+                <div class="cal-date-cell">30</div>
+                <div class="cal-date-cell">31</div>
+              </div>
+
+              <div style="margin-top: 2rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 0.875rem; color: rgba(255,255,255,0.8);">
+                  <div style="width: 0.75rem; height: 0.75rem; border-radius: 9999px; background-color: var(--primary-teal);"></div>
+                  <span>Important Activities</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 0.875rem; color: rgba(255,255,255,0.8);">
+                  <div style="width: 0.75rem; height: 0.75rem; border-radius: 9999px; background-color: var(--accent-gold);"></div>
+                  <span>Exams & Submissions</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 0.875rem; color: rgba(255,255,255,0.8);">
+                  <div style="width: 0.75rem; height: 0.75rem; border-radius: 9999px; background-color: #f87171;"></div>
+                  <span>Holidays</span>
+                </div>
+              </div>
+
+              <button style="width: 100%; margin-top: 2rem; padding: 0.75rem 0; border-radius: 0.75rem; border: 1px solid rgba(255,255,255,0.2); color: #ffffff; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                View Full Calendar <i class="fas fa-arrow-right" style="font-size: 0.875rem;"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Right Column: Activities Timeline -->
+          <div class="cal-col-right" id="activities">
+            <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1.5rem;">
+              <h2 style="font-size: 1.875rem; font-weight: 700; color: #ffffff; font-family: var(--font-poppins);">Upcoming Activities</h2>
+              <a href="#" style="color: var(--neon-lime); font-size: 0.875rem; font-weight: 600; display: flex; align-items: center; gap: 0.25rem;">
+                View All <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <!-- Activity 1 -->
+              <div class="event-timeline-card">
+                <div>
+                  <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+                    <span style="padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 700; background-color: var(--primary-teal); color: #ffffff;">Hackathon</span>
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: #ffffff;">National Level Hackathon 2026</h3>
+                  </div>
+                  <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; font-size: 0.875rem; color: rgba(255,255,255,0.7);">
+                    <div style="display: flex; align-items: center; gap: 0.375rem;"><i class="fas fa-calendar" style="color: var(--primary-teal);"></i> Aug 15 - Aug 16</div>
+                    <div style="display: flex; align-items: center; gap: 0.375rem;"><i class="fas fa-clock" style="color: var(--accent-gold);"></i> 9:00 AM - 5:00 PM</div>
+                    <div style="display: flex; align-items: center; gap: 0.375rem;"><i class="fas fa-location-dot" style="color: var(--neon-lime);"></i> Main Auditorium</div>
+                  </div>
+                </div>
+                <div>
+                  <button style="padding: 0.625rem 1.5rem; border-radius: 9999px; background-color: transparent; border: 1px solid rgba(255,255,255,0.3); color: #ffffff; font-weight: 600; white-space: nowrap;">Register Now</button>
+                </div>
+              </div>
+
+              <!-- Activity 2 -->
+              <div class="event-timeline-card">
+                <div>
+                  <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+                    <span style="padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 700; background-color: var(--accent-gold); color: #ffffff;">Workshop</span>
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: #ffffff;">AI & Machine Learning Workshop</h3>
+                  </div>
+                  <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; font-size: 0.875rem; color: rgba(255,255,255,0.7);">
+                    <div style="display: flex; align-items: center; gap: 0.375rem;"><i class="fas fa-calendar" style="color: var(--primary-teal);"></i> Aug 22</div>
+                    <div style="display: flex; align-items: center; gap: 0.375rem;"><i class="fas fa-clock" style="color: var(--accent-gold);"></i> 10:00 AM - 1:00 PM</div>
+                    <div style="display: flex; align-items: center; gap: 0.375rem;"><i class="fas fa-location-dot" style="color: var(--neon-lime);"></i> Lab Complex - AI Lab</div>
+                  </div>
+                </div>
+                <div>
+                  <button style="padding: 0.625rem 1.5rem; border-radius: 9999px; background-color: transparent; border: 1px solid rgba(255,255,255,0.3); color: #ffffff; font-weight: 600; white-space: nowrap;">Register Now</button>
+                </div>
+              </div>
+
+              <!-- Activity 3 -->
+              <div class="event-timeline-card">
+                <div>
+                  <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+                    <span style="padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 700; background-color: var(--dark-teal); color: #ffffff;">Seminar</span>
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: #ffffff;">Technical Seminar on Blockchain</h3>
+                  </div>
+                  <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; font-size: 0.875rem; color: rgba(255,255,255,0.7);">
+                    <div style="display: flex; align-items: center; gap: 0.375rem;"><i class="fas fa-calendar" style="color: var(--primary-teal);"></i> Sep 05</div>
+                    <div style="display: flex; align-items: center; gap: 0.375rem;"><i class="fas fa-clock" style="color: var(--accent-gold);"></i> 11:00 AM - 1:00 PM</div>
+                    <div style="display: flex; align-items: center; gap: 0.375rem;"><i class="fas fa-location-dot" style="color: var(--neon-lime);"></i> Seminar Hall 1</div>
+                  </div>
+                </div>
+                <div>
+                  <button style="padding: 0.625rem 1.5rem; border-radius: 9999px; background-color: transparent; border: 1px solid rgba(255,255,255,0.3); color: #ffffff; font-weight: 600; white-space: nowrap;">Register Now</button>
+                </div>
+              </div>
+
+              <!-- Activity 4 -->
+              <div class="event-timeline-card">
+                <div>
+                  <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+                    <span style="padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 700; background-color: var(--neon-lime); color: var(--dark-gray);">Competition</span>
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: #ffffff;">Annual Poster Competition</h3>
+                  </div>
+                  <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; font-size: 0.875rem; color: rgba(255,255,255,0.7);">
+                    <div style="display: flex; align-items: center; gap: 0.375rem;"><i class="fas fa-calendar" style="color: var(--primary-teal);"></i> Sep 12</div>
+                    <div style="display: flex; align-items: center; gap: 0.375rem;"><i class="fas fa-clock" style="color: var(--accent-gold);"></i> 10:00 AM - 4:00 PM</div>
+                    <div style="display: flex; align-items: center; gap: 0.375rem;"><i class="fas fa-location-dot" style="color: var(--neon-lime);"></i> College Campus</div>
+                  </div>
+                </div>
+                <div>
+                  <button style="padding: 0.625rem 1.5rem; border-radius: 9999px; background-color: transparent; border: 1px solid rgba(255,255,255,0.3); color: #ffffff; font-weight: 600; white-space: nowrap;">Register Now</button>
+                </div>
+              </div>
+
+              <!-- Activity 5 -->
+              <div class="event-timeline-card">
+                <div>
+                  <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+                    <span style="padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 700; background-color: var(--primary-teal); color: #ffffff;">Contest</span>
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: #ffffff;">Inter-College Coding Contest</h3>
+                  </div>
+                  <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; font-size: 0.875rem; color: rgba(255,255,255,0.7);">
+                    <div style="display: flex; align-items: center; gap: 0.375rem;"><i class="fas fa-calendar" style="color: var(--primary-teal);"></i> Sep 20</div>
+                    <div style="display: flex; align-items: center; gap: 0.375rem;"><i class="fas fa-clock" style="color: var(--accent-gold);"></i> 9:00 AM - 12:00 PM</div>
+                    <div style="display: flex; align-items: center; gap: 0.375rem;"><i class="fas fa-location-dot" style="color: var(--neon-lime);"></i> Computer Center</div>
+                  </div>
+                </div>
+                <div>
+                  <button style="padding: 0.625rem 1.5rem; border-radius: 9999px; background-color: transparent; border: 1px solid rgba(255,255,255,0.3); color: #ffffff; font-weight: 600; white-space: nowrap;">Register Now</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Notices & Student Activities Section -->
+    <section id="notices" class="notices-section">
+      <div class="max-w-7xl">
+        <div class="notices-grid">
+
+          <!-- Left Column: Student Activities Grid -->
+          <div>
+            <h3 style="font-size: 1.875rem; font-weight: 800; color: var(--dark-gray); text-transform: uppercase; margin-bottom: 3rem; font-family: var(--font-poppins); letter-spacing: -0.025em;">
+              Student activities
+            </h3>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 2rem;">
+              <!-- Card 1 -->
+              <div class="activity-card">
+                <div style="height: 11rem; width: 100%; background-size: cover; background-position: center; background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=600');"></div>
+                <div style="padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; font-weight: 700; color: var(--light-gray); text-transform: uppercase; margin-bottom: 0.75rem;">
+                    <span style="color: var(--primary-teal);">Hackathon</span>
+                    <span>22 Jul 2026</span>
+                  </div>
+                  <h4 style="font-size: 1.125rem; font-weight: 700; color: var(--dark-gray); margin-bottom: 0.5rem; font-family: var(--font-poppins);">CodeCraft Hackathon</h4>
+                  <p style="font-size: 0.875rem; color: rgba(25,36,36,0.7); margin-bottom: 1.5rem; flex-grow: 1; line-height: 1.625;">24-hour coding challenge focused on scalable application design. Solve real-world cases.</p>
+                  <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px solid rgba(169,191,193,0.1); margin-top: auto;">
+                    <span style="font-weight: 800; color: var(--primary-teal); font-size: 0.875rem;">+50 Points</span>
+                    <a href="#register" style="display: inline-flex; align-items: center; justify-content: center; padding: 0.375rem 1rem; border: 1px solid rgba(44,154,161,0.2); font-size: 0.75rem; font-weight: 700; border-radius: 0.5rem; color: var(--primary-teal);">Register</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 2 -->
+              <div class="activity-card">
+                <div style="height: 11rem; width: 100%; background-size: cover; background-position: center; background-image: url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=600');"></div>
+                <div style="padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; font-weight: 700; color: var(--light-gray); text-transform: uppercase; margin-bottom: 0.75rem;">
+                    <span style="color: var(--primary-teal);">Sports</span>
+                    <span>05 Aug 2026</span>
+                  </div>
+                  <h4 style="font-size: 1.125rem; font-weight: 700; color: var(--dark-gray); margin-bottom: 0.5rem; font-family: var(--font-poppins);">Annual Cricket Cup</h4>
+                  <p style="font-size: 0.875rem; color: rgba(25,36,36,0.7); margin-bottom: 1.5rem; flex-grow: 1; line-height: 1.625;">Inter-department athletic tournament. Champion team claims sports senate credits.</p>
+                  <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px solid rgba(169,191,193,0.1); margin-top: auto;">
+                    <span style="font-weight: 800; color: var(--primary-teal); font-size: 0.875rem;">+30 Points</span>
+                    <a href="#register" style="display: inline-flex; align-items: center; justify-content: center; padding: 0.375rem 1rem; border: 1px solid rgba(44,154,161,0.2); font-size: 0.75rem; font-weight: 700; border-radius: 0.5rem; color: var(--primary-teal);">Register</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 3 -->
+              <div class="activity-card">
+                <div style="height: 11rem; width: 100%; background-size: cover; background-position: center; background-image: url('https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=600');"></div>
+                <div style="padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; font-weight: 700; color: var(--light-gray); text-transform: uppercase; margin-bottom: 0.75rem;">
+                    <span style="color: var(--primary-teal);">Technical</span>
+                    <span>12 Aug 2026</span>
+                  </div>
+                  <h4 style="font-size: 1.125rem; font-weight: 700; color: var(--dark-gray); margin-bottom: 0.5rem; font-family: var(--font-poppins);">Paper Presentation</h4>
+                  <p style="font-size: 0.875rem; color: rgba(25,36,36,0.7); margin-bottom: 1.5rem; flex-grow: 1; line-height: 1.625;">Showcase research models in machine learning and cybersecurity parameters.</p>
+                  <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px solid rgba(169,191,193,0.1); margin-top: auto;">
+                    <span style="font-weight: 800; color: var(--primary-teal); font-size: 0.875rem;">+40 Points</span>
+                    <a href="#register" style="display: inline-flex; align-items: center; justify-content: center; padding: 0.375rem 1rem; border: 1px solid rgba(44,154,161,0.2); font-size: 0.75rem; font-weight: 700; border-radius: 0.5rem; color: var(--primary-teal);">Register</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 4 -->
+              <div class="activity-card">
+                <div style="height: 11rem; width: 100%; background-size: cover; background-position: center; background-image: url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=600');"></div>
+                <div style="padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; font-weight: 700; color: var(--light-gray); text-transform: uppercase; margin-bottom: 0.75rem;">
+                    <span style="color: var(--primary-teal);">Community</span>
+                    <span>18 Aug 2026</span>
+                  </div>
+                  <h4 style="font-size: 1.125rem; font-weight: 700; color: var(--dark-gray); margin-bottom: 0.5rem; font-family: var(--font-poppins);">NSS Plantation Drive</h4>
+                  <p style="font-size: 0.875rem; color: rgba(25,36,36,0.7); margin-bottom: 1.5rem; flex-grow: 1; line-height: 1.625;">Dedicate service hours for environmental coordination certificates.</p>
+                  <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px solid rgba(169,191,193,0.1); margin-top: auto;">
+                    <span style="font-weight: 800; color: var(--primary-teal); font-size: 0.875rem;">+20 Points</span>
+                    <a href="#register" style="display: inline-flex; align-items: center; justify-content: center; padding: 0.375rem 1rem; border: 1px solid rgba(44,154,161,0.2); font-size: 0.75rem; font-weight: 700; border-radius: 0.5rem; color: var(--primary-teal);">Register</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Latest Notices Board -->
+          <div class="notice-sidebar">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(169,191,193,0.1);">
+              <span style="font-size: 1.125rem; font-weight: 800; color: var(--dark-gray); font-family: var(--font-poppins); display: flex; align-items: center; gap: 0.75rem;">
+                <span style="width: 0.625rem; height: 0.625rem; background-color: var(--primary-teal); border-radius: 9999px; display: inline-block;"></span>
+                Latest Notices
+              </span>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div style="display: flex; gap: 0.5rem; margin-bottom: 2rem;">
+              <button class="notice-pill-btn active" id="btnNoticeAll">All</button>
+              <button class="notice-pill-btn" id="btnNoticeDeadlines">Deadlines</button>
+              <button class="notice-pill-btn" id="btnNoticeUpdates">Updates</button>
+            </div>
+
+            <!-- Notices List -->
+            <div style="display: flex; flex-direction: column; gap: 1.25rem;" id="noticeListContainer">
+              <!-- Notice Item 1 -->
+              <div class="notice-box-item" data-category="deadline" style="padding: 1.25rem; border-radius: 0.75rem; background-color: var(--off-white); border: 1px solid rgba(169,191,193,0.1);">
+                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.625rem; font-weight: 700; margin-bottom: 0.75rem;">
+                  <span style="color: var(--light-gray);">2 hours ago</span>
+                  <span style="padding: 0.125rem 0.5rem; border-radius: 0.25rem; background-color: rgba(239,68,68,0.1); color: #ef4444; text-transform: uppercase;">Deadlines</span>
+                </div>
+                <h4 style="font-size: 1rem; font-weight: 700; color: var(--dark-gray); margin-bottom: 0.5rem; font-family: var(--font-poppins);">NPTEL Certificate Submissions</h4>
+                <p style="font-size: 0.875rem; color: rgba(25,36,36,0.7); line-height: 1.625;">Submit NPTEL course proofs before 25th July. No submissions accepted post this window.</p>
+              </div>
+
+              <!-- Notice Item 2 -->
+              <div class="notice-box-item" data-category="update" style="padding: 1.25rem; border-radius: 0.75rem; background-color: var(--off-white); border: 1px solid rgba(169,191,193,0.1);">
+                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.625rem; font-weight: 700; margin-bottom: 0.75rem;">
+                  <span style="color: var(--light-gray);">1 day ago</span>
+                  <span style="padding: 0.125rem 0.5rem; border-radius: 0.25rem; background-color: rgba(34,197,94,0.1); color: #22c55e; text-transform: uppercase;">Updates</span>
+                </div>
+                <h4 style="font-size: 1rem; font-weight: 700; color: var(--dark-gray); margin-bottom: 0.5rem; font-family: var(--font-poppins);">Portal V2.0 Launched</h4>
+                <p style="font-size: 0.875rem; color: rgba(25,36,36,0.7); line-height: 1.625;">A new secure responsive interface has been launched. Check user dashboards for guidelines updates.</p>
+              </div>
+
+              <!-- Notice Item 3 -->
+              <div class="notice-box-item" data-category="update" style="padding: 1.25rem; border-radius: 0.75rem; background-color: var(--off-white); border: 1px solid rgba(169,191,193,0.1);">
+                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.625rem; font-weight: 700; margin-bottom: 0.75rem;">
+                  <span style="color: var(--light-gray);">3 days ago</span>
+                  <span style="padding: 0.125rem 0.5rem; border-radius: 0.25rem; background-color: rgba(59,130,246,0.1); color: #3b82f6; text-transform: uppercase;">System</span>
+                </div>
+                <h4 style="font-size: 1rem; font-weight: 700; color: var(--dark-gray); margin-bottom: 0.5rem; font-family: var(--font-poppins);">Verification Hours Restored</h4>
+                <p style="font-size: 0.875rem; color: rgba(25,36,36,0.7); line-height: 1.625;">Faculty evaluators are auditing submissions. Standard approval timeline set back to 24h limit.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Help Desk & Contact Section -->
+    <section id="helpdesk" class="helpdesk-section">
+      <div class="max-w-7xl">
+        <div style="text-align: center; margin-bottom: 4rem;">
+          <h2 style="font-size: 2.25rem; font-weight: 800; color: var(--dark-gray); margin-bottom: 1rem; font-family: var(--font-poppins);">Help Desk & Support</h2>
+          <p style="font-size: 1.125rem; color: rgba(25,36,36,0.7); max-width: 42rem; margin: 0 auto;">
+            Need assistance with the portal? Our dedicated support team is here to help you resolve any issues quickly.
+          </p>
+        </div>
+
+        <!-- Support Channels Cards -->
+        <div class="helpdesk-grid">
+          <!-- Card 1 -->
+          <div class="help-card-box">
+            <div style="width: 4rem; height: 4rem; border-radius: 9999px; background-color: #ffffff; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: var(--primary-teal); box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);">
+              <i class="fas fa-phone" style="font-size: 2rem;"></i>
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--dark-gray); margin-bottom: 0.5rem;">Phone Support</h3>
+            <p style="color: var(--primary-teal); font-weight: 600; font-size: 1.125rem; margin-bottom: 0.25rem;">+91 800 123 4567</p>
+            <p style="color: rgba(25,36,36,0.5); font-size: 0.875rem;">Mon-Fri, 9am - 5pm</p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="help-card-box">
+            <div style="width: 4rem; height: 4rem; border-radius: 9999px; background-color: #ffffff; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: var(--accent-gold); box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);">
+              <i class="fas fa-envelope" style="font-size: 2rem;"></i>
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--dark-gray); margin-bottom: 0.5rem;">Email Support</h3>
+            <p style="color: var(--primary-teal); font-weight: 600; font-size: 1.125rem; margin-bottom: 0.25rem;">cie.support@zcoer.edu.in</p>
+            <p style="color: rgba(25,36,36,0.5); font-size: 0.875rem;">Usually replies in 24 hrs</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="help-card-box">
+            <div style="width: 4rem; height: 4rem; border-radius: 9999px; background-color: #ffffff; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: var(--dark-teal); box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);">
+              <i class="fas fa-ticket" style="font-size: 2rem;"></i>
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--dark-gray); margin-bottom: 0.5rem;">Support Ticket</h3>
+            <p style="color: var(--primary-teal); font-weight: 600; font-size: 1.125rem; margin-bottom: 0.25rem;">Raise a Request</p>
+            <p style="color: rgba(25,36,36,0.5); font-size: 0.875rem;">Track your issue online</p>
+          </div>
+        </div>
+
+        <!-- Contact & Map Block -->
+        <div id="contact" class="contact-dark-card">
+          <!-- Left Map Placeholder -->
+          <div style="height: 16rem; min-height: 100%; position: relative; background-color: #e5e7eb;">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.606399127732!2d73.8184!3d18.4552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDI3JzE4LjciTiA3M8KwNDknMDYuMiJF!5e0!3m2!1sen!2sin!4v1629876543210!5m2!1sen!2sin" 
+              width="100%" 
+              height="100%" 
+              style="border:0; filter: grayscale(100%) invert(90%) contrast(80%);" 
+              allowfullscreen="" 
+              loading="lazy" 
+              title="Campus Map">
+            </iframe>
+          </div>
+
+          <!-- Right Contact Details -->
+          <div style="padding: 2.5rem; display: flex; flex-direction: column; justify-content: center;">
+            <h3 style="font-size: 1.5rem; font-weight: 700; color: #ffffff; margin-bottom: 2rem; font-family: var(--font-poppins);">Contact Information</h3>
+
+            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+              <!-- Item 1 -->
+              <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                <i class="fas fa-location-dot" style="color: var(--neon-lime); font-size: 1.5rem; margin-top: 0.25rem;"></i>
+                <div>
+                  <h4 style="color: #ffffff; font-weight: 600; margin-bottom: 0.25rem;">Campus Address</h4>
+                  <p style="color: rgba(255,255,255,0.7); font-size: 0.875rem; line-height: 1.625;">
+                    ZEAL College of Engineering & Research,<br>
+                    Survey No. 39, Narhe,<br>
+                    Pune, Maharashtra 411041, India
+                  </p>
+                </div>
+              </div>
+
+              <!-- Item 2 -->
+              <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                <i class="fas fa-clock" style="color: var(--accent-gold); font-size: 1.5rem; margin-top: 0.25rem;"></i>
+                <div>
+                  <h4 style="color: #ffffff; font-weight: 600; margin-bottom: 0.25rem;">Office Hours</h4>
+                  <p style="color: rgba(255,255,255,0.7); font-size: 0.875rem;">Monday - Friday: 9:00 AM to 5:00 PM</p>
+                  <p style="color: rgba(255,255,255,0.7); font-size: 0.875rem;">Saturday: 9:00 AM to 1:00 PM</p>
+                </div>
+              </div>
+
+              <!-- Item 3 -->
+              <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                <i class="fas fa-comments" style="color: var(--primary-teal); font-size: 1.5rem; margin-top: 0.25rem;"></i>
+                <div>
+                  <h4 style="color: #ffffff; font-weight: 600; margin-bottom: 0.25rem;">Live Chat</h4>
+                  <p style="color: rgba(255,255,255,0.7); font-size: 0.875rem; margin-bottom: 0.75rem;">Available during office hours for quick resolutions.</p>
+                  <button style="background-color: rgba(255,255,255,0.1); color: #ffffff; padding: 0.5rem 1.25rem; border-radius: 0.5rem; font-weight: 500; font-size: 0.875rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+                    Start Chat <i class="fas fa-message"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="max-w-7xl">
+      <div class="footer-grid">
+
+        <!-- Column 1: Brand -->
+        <div>
+          <div class="brand-wrapper" style="margin-bottom: 1.5rem;">
+            <div class="logo-circle">Z</div>
+            <div class="brand-text">
+              <span class="brand-title">ZCOER</span>
+              <span class="brand-subtitle">CIE Portal</span>
+            </div>
+          </div>
+          <p style="color: rgba(255,255,255,0.6); font-size: 0.875rem; line-height: 1.625; margin-bottom: 1.5rem;">
+            Empowering education through transparent, efficient, and digital continuous internal evaluation tracking.
+          </p>
+          <div style="display: flex; gap: 1rem;">
+            <a href="#" style="width: 2.5rem; height: 2.5rem; border-radius: 9999px; background-color: rgba(255,255,255,0.05); color: #ffffff; display: flex; align-items: center; justify-content: center;"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" style="width: 2.5rem; height: 2.5rem; border-radius: 9999px; background-color: rgba(255,255,255,0.05); color: #ffffff; display: flex; align-items: center; justify-content: center;"><i class="fab fa-twitter"></i></a>
+            <a href="#" style="width: 2.5rem; height: 2.5rem; border-radius: 9999px; background-color: rgba(255,255,255,0.05); color: #ffffff; display: flex; align-items: center; justify-content: center;"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" style="width: 2.5rem; height: 2.5rem; border-radius: 9999px; background-color: rgba(255,255,255,0.05); color: #ffffff; display: flex; align-items: center; justify-content: center;"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div>
+          <h4 style="color: #ffffff; font-weight: 600; margin-bottom: 1.5rem;">Quick Links</h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.875rem; color: rgba(255,255,255,0.6);">
+            <li><a href="#home" style="transition: color 0.2s;">Home</a></li>
+            <li><a href="#about" style="transition: color 0.2s;">About Portal</a></li>
+            <li><a href="#calendar" style="transition: color 0.2s;">Academic Calendar</a></li>
+            <li><a href="#activities" style="transition: color 0.2s;">Activities</a></li>
+            <li><a href="#notices" style="transition: color 0.2s;">Notices</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Resources -->
+        <div>
+          <h4 style="color: #ffffff; font-weight: 600; margin-bottom: 1.5rem;">Resources</h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.875rem; color: rgba(255,255,255,0.6);">
+            <li><a href="#guidelines" style="transition: color 0.2s;">CIE Guidelines</a></li>
+            <li><a href="#" style="transition: color 0.2s;">Student Manual</a></li>
+            <li><a href="#" style="transition: color 0.2s;">Faculty Guide</a></li>
+            <li><a href="#helpdesk" style="transition: color 0.2s;">Help Desk</a></li>
+            <li><a href="#" style="transition: color 0.2s;">FAQ</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Newsletter -->
+        <div>
+          <h4 style="color: #ffffff; font-weight: 600; margin-bottom: 1.5rem;">Stay Updated</h4>
+          <p style="color: rgba(255,255,255,0.6); font-size: 0.875rem; margin-bottom: 1rem;">Subscribe to our newsletter for major academic updates.</p>
+          <div style="display: flex;">
+            <input type="email" placeholder="Enter your email" style="background-color: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-top-left-radius: 0.5rem; border-bottom-left-radius: 0.5rem; padding: 0.5rem 1rem; font-size: 0.875rem; color: #ffffff; width: 100%; outline: none;">
+            <button style="background-color: var(--primary-teal); color: #ffffff; padding: 0 1rem; border-top-right-radius: 0.5rem; border-bottom-right-radius: 0.5rem; display: flex; align-items: center; justify-content: center;">
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+
+          <div style="margin-top: 2rem; display: flex; align-items: center; gap: 0.75rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem;">
+            <div style="height: 2rem; width: 2rem; background-color: rgba(255,255,255,0.1); border-radius: 0.25rem; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: rgba(255,255,255,0.5);">IT</div>
+            <span style="color: rgba(255,255,255,0.5); font-size: 0.75rem;">Developed by Dept. of Information Technology</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div style="display: flex; flex-direction: column; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; margin-top: 2rem; font-size: 0.875rem; color: rgba(255,255,255,0.4); gap: 1rem; text-align: center;">
+        <p>&copy; 2026 ZEAL College of Engineering & Research. All rights reserved.</p>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script type="module" src="script.js"></script>
+</body>
 </html>

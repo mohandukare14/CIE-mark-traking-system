@@ -5,6 +5,7 @@ const Facilities = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [slideWidth, setSlideWidth] = useState(0);
   const [maxSlide, setMaxSlide] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
   const trackRef = useRef<HTMLDivElement>(null);
 
   const facilities = [
@@ -76,6 +77,23 @@ const Facilities = () => {
     };
   }, []);
 
+  // Autoplay loop effect
+  useEffect(() => {
+    if (isHovered) return;
+    
+    const interval = setInterval(() => {
+      setCurrentSlide(prev => {
+        if (prev >= maxSlide) {
+          return 0; // loop back to first slide
+        } else {
+          return prev + 1;
+        }
+      });
+    }, 2500);
+
+    return () => clearInterval(interval);
+  }, [maxSlide, isHovered]);
+
   const handleNext = () => {
     setCurrentSlide(prev => Math.min(prev + 1, maxSlide));
   };
@@ -121,7 +139,11 @@ const Facilities = () => {
           </div>
         </div>
 
-        <div className="overflow-hidden relative w-full">
+        <div 
+          className="overflow-hidden relative w-full"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
           <div 
             ref={trackRef}
             className="flex gap-8 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] w-full"

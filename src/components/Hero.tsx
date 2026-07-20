@@ -1,17 +1,22 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, BarChart3, Calendar, Users, Award, BookOpen } from 'lucide-react';
+import { BarChart3, Calendar, Users, Award, BookOpen } from 'lucide-react';
+import campusImg from '../assets/campus.jpg';
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen pt-24 pb-12 flex items-center bg-gradient-to-br from-dark-teal via-primary-teal to-deep-teal overflow-hidden">
+    <section id="home" className="relative min-h-screen pt-24 pb-12 flex items-center bg-dark-gray overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-neon-lime/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
-        <div className="absolute top-40 right-10 w-72 h-72 bg-accent-gold/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob" style={{animationDelay: '2s'}}></div>
-        <div className="absolute -bottom-8 left-20 w-72 h-72 bg-white/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob" style={{animationDelay: '4s'}}></div>
-        
-        {/* Subtle pattern overlay */}
-        <div className="absolute inset-0 opacity-[0.03] bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3N2Zz4=')]"></div>
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ 
+            backgroundImage: `url(${campusImg})`,
+            filter: 'blur(6px) brightness(70%)',
+            transform: 'scale(1.1)'
+          }}
+        />
+        {/* Dark subtle teal overlay to keep the theme branding */}
+        <div className="absolute inset-0 bg-gradient-to-br from-dark-gray/35 via-dark-teal/25 to-dark-gray/45" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
