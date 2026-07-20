@@ -5,9 +5,10 @@ import { X, User, Lock, ArrowRight, ShieldCheck, CheckCircle } from 'lucide-reac
 interface LoginModalProps {
   isOpen: boolean;
   onClose: () => void;
+  onLoginSuccess: (role: 'student' | 'faculty') => void;
 }
 
-const LoginModal = ({ isOpen, onClose }: LoginModalProps) => {
+const LoginModal = ({ isOpen, onClose, onLoginSuccess }: LoginModalProps) => {
   const [role, setRole] = useState<'student' | 'faculty'>('student');
   const [identifier, setIdentifier] = useState('');
   const [password, setPassword] = useState('');
@@ -20,7 +21,7 @@ const LoginModal = ({ isOpen, onClose }: LoginModalProps) => {
     setIsSubmitted(true);
     setTimeout(() => {
       setIsSubmitted(false);
-      onClose();
+      onLoginSuccess(role);
     }, 1500);
   };
 
