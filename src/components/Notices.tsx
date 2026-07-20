@@ -114,7 +114,7 @@ const Notices = () => {
           </div>
 
           {/* Notices Sidebar Board (Right) */}
-          <div className="bg-white border border-light-gray/20 rounded-[20px] p-8 shadow-sm flex flex-col h-full hover:shadow-md transition-all duration-300">
+          <div id="notices" className="bg-white border border-light-gray/20 rounded-[20px] p-8 shadow-sm flex flex-col h-full hover:shadow-md transition-all duration-300">
             <div className="flex justify-between items-center mb-8 pb-4 border-b border-light-gray/10">
               <span className="font-poppins text-lg font-extrabold flex items-center gap-3 text-dark-gray">
                 <span className="inline-block w-2.5 h-2.5 bg-primary-teal rounded-full animate-pulse"></span>

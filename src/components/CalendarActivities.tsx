@@ -118,7 +118,6 @@ const CalendarActivities = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="lg:col-span-8"
-            id="activities"
           >
             <div className="flex justify-between items-end mb-6">
               <h2 className="text-3xl font-bold text-white font-poppins">Upcoming Activities</h2>

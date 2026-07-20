@@ -48,7 +48,7 @@ const Features = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-b from-white to-off-white relative overflow-hidden">
+    <section id="guidelines" className="py-24 bg-gradient-to-b from-white to-off-white relative overflow-hidden">
       {/* Background Decor */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary-teal/5 rounded-full filter blur-3xl -translate-y-1/2 translate-x-1/3"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-neon-lime/10 rounded-full filter blur-3xl translate-y-1/3 -translate-x-1/3"></div>
