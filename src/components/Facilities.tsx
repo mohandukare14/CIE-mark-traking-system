@@ -46,6 +46,8 @@ const Facilities = () => {
     }
   ];
 
+  const [isHovered, setIsHovered] = useState(false);
+
   const updateSliderDimensions = () => {
     if (!trackRef.current) return;
 
@@ -76,12 +78,20 @@ const Facilities = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (isHovered || maxSlide <= 0) return;
+    const interval = setInterval(() => {
+      setCurrentSlide(prev => (prev >= maxSlide ? 0 : prev + 1));
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [maxSlide, isHovered]);
+
   const handleNext = () => {
-    setCurrentSlide(prev => Math.min(prev + 1, maxSlide));
+    setCurrentSlide(prev => (prev >= maxSlide ? 0 : prev + 1));
   };
 
   const handlePrev = () => {
-    setCurrentSlide(prev => Math.max(prev - 1, 0));
+    setCurrentSlide(prev => (prev <= 0 ? maxSlide : prev - 1));
   };
 
   return (
@@ -97,20 +107,14 @@ const Facilities = () => {
           <div className="flex gap-3">
             <button
               onClick={handlePrev}
-              disabled={currentSlide === 0}
-              className={`w-12 h-12 rounded-full border border-light-gray/20 flex items-center justify-center text-dark-gray hover:border-primary-teal hover:text-primary-teal transition-all
-                ${currentSlide === 0 ? 'opacity-30 cursor-not-allowed' : 'cursor-pointer'}
-              `}
+              className="w-12 h-12 rounded-full border border-light-gray/20 flex items-center justify-center text-dark-gray hover:border-primary-teal hover:text-primary-teal transition-all cursor-pointer"
               aria-label="Previous Slide"
             >
               <ArrowLeft size={20} />
             </button>
             <button
               onClick={handleNext}
-              disabled={currentSlide >= maxSlide}
-              className={`w-12 h-12 rounded-full border border-light-gray/20 flex items-center justify-center text-dark-gray hover:border-primary-teal hover:text-primary-teal transition-all
-                ${currentSlide >= maxSlide ? 'opacity-30 cursor-not-allowed' : 'cursor-pointer'}
-              `}
+              className="w-12 h-12 rounded-full border border-light-gray/20 flex items-center justify-center text-dark-gray hover:border-primary-teal hover:text-primary-teal transition-all cursor-pointer"
               aria-label="Next Slide"
             >
               <ArrowRight size={20} />
@@ -118,7 +122,11 @@ const Facilities = () => {
           </div>
         </div>
 
-        <div className="overflow-hidden relative w-full">
+        <div
+          className="overflow-hidden relative w-full"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
           <div
             ref={trackRef}
             className="flex gap-8 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] w-full"
