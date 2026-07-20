@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, BarChart3, Users, Award, BookOpen } from 'lucide-react';
+import { ArrowRight, BarChart3, Award, BookOpen } from 'lucide-react';
 
 interface HeroProps {
   onOpenLogin?: () => void;
